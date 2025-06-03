@@ -654,46 +654,48 @@ src="https://www.facebook.com/tr?id=725920156680702&ev=PageView&noscript=1"
             <h5><span>Залиште заявку</span></h5>
 
 
-            <form id="order_form" method="post" class="main-order-form m1-form">
-                <input type="text" name="name" placeholder="Ваше ім&#39;я і прізвище" required="">
-                <input type="tel" name="phone" placeholder="Ваш телефон" required="">
-            
-                <select name="comment" class="field" required="">
-                    <option value="" disabled="" selected="">▼ Обрати кількість</option>
-                    <option value="1 пар = 177 грн (без подарунку)">1 пар = 177 грн (без подарунку)</option>
-                    <option value="2 пар = 364 грн (+1 подарунок)">2 пар = 364 грн (+1 подарунок)</option>
-                    <option value="4 пар = 738 грн (+2 подарунок)">4 пар = 738 грн (+2 подарунок)</option>
-                    <option value="6 пар =1099 грн (+3 подарунок)і">6 пар =1099 грн (+3 подарунок)</option>
-                    <option value="Інша кількість">Інша кількість</option>
-                </select>
-              <select name="size" class="field" required="">
-                    <option value="" disabled="" selected="">▼ Обрати розмір</option>
-                    <option value=""> S 34-38</option>
-		        <option value="">M 37-41</option>
-                </select>
-                <button type="submit" class="button-m">Замовити зі знижкою</button>
-            </form>
-            
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById('order_form').addEventListener('submit', function(e) {
-                    e.preventDefault(); // Зупиняємо стандартне відправлення форми
-            
-                    // Отримуємо значення полів форми
-                    var name = document.querySelector('input[name="name"]').value.trim();
-                    var phone = document.querySelector('input[name="phone"]').value.trim();
-                    var comment = document.querySelector('select[name="comment"]').value;
-		
-            
-                    // Перевіряємо, чи всі поля заповнені
-                    if (!name || !phone || !comment) {
-                        alert("Будь ласка, заповніть всі поля!");
-                        return;
-                    }
-            
-                    // Формуємо повідомлення
-                    var message = `📦(чохли від дощу ) НОВЕ ЗАМОВЛЕННЯ\n\n🧑 Ім'я: ${name}\n📞 Телефон: ${phone}\n👟 Кількість: ${comment}`;
-            
+          <form id="order_form" method="post" class="main-order-form m1-form">
+  <input type="text" name="name" placeholder="Ваше ім'я і прізвище" required="">
+  <input type="tel" name="phone" placeholder="Ваш телефон" required="">
+
+  <select name="comment" class="field" required="">
+    <option value="" disabled selected>▼ Обрати кількість</option>
+    <option value="1 пар = 177 грн (без подарунку)">1 пар = 177 грн (без подарунку)</option>
+    <option value="2 пар = 364 грн (+1 подарунок)">2 пар = 364 грн (+1 подарунок)</option>
+    <option value="4 пар = 738 грн (+2 подарунок)">4 пар = 738 грн (+2 подарунок)</option>
+    <option value="6 пар = 1099 грн (+3 подарунок)">6 пар = 1099 грн (+3 подарунок)</option>
+    <option value="Інша кількість">Інша кількість</option>
+  </select>
+
+  <select name="size" class="field" required="">
+    <option value="" disabled selected>▼ Обрати розмір</option>
+    <option value="S 34-38">S 34-38</option>
+    <option value="M 37-41">M 37-41</option>
+  </select>
+
+  <button type="submit" class="button-m">Замовити зі знижкою</button>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('order_form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Зупиняємо стандартне відправлення форми
+
+    // Отримуємо значення полів форми
+    var name = document.querySelector('input[name="name"]').value.trim();
+    var phone = document.querySelector('input[name="phone"]').value.trim();
+    var comment = document.querySelector('select[name="comment"]').value;
+    var size = document.querySelector('select[name="size"]').value;
+
+    // Перевіряємо, чи всі поля заповнені
+    if (!name || !phone || !comment || !size) {
+      alert("Будь ласка, заповніть всі поля!");
+      return;
+    }
+
+    // Формуємо повідомлення
+    var message = `📦 (чохли від дощу) НОВЕ ЗАМОВЛЕННЯ\n\n🧑 Ім'я: ${name}\n📞 Телефон: ${phone}\n👟 Кількість: ${comment}\n📐 Розмір: ${size}`;
+
                     // Ваш токен та ID чату
                     var token = '6897804929:AAE7BfzBRNefcjG5gpyx7KbLTmqf-13MwTY';
                     var chatId =  -4251179444;
